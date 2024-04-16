@@ -1,0 +1,14 @@
+version: "3"
+services:
+  jackett:
+    image: lscr.io/linuxserver/jackett:latest
+    container_name: jackett
+    network_mode: "container:gluetun"
+    environment:
+      PUID: 1001
+      PGID: 1001
+      VERSION: docker
+    volumes:
+      - /home/docker/jackett/config:/config
+      - /media/downloads:/downloads
+    restart: always
